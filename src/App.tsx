@@ -1,10 +1,16 @@
 import "./App.css";
+import RecipeVisualizer from "./RecipeVisualizer";
 
 function App() {
   return (
-    <>
-      <h1>Lineage: Workato recipe visualizer</h1>
-    </>
+    <div className="min-h-screen">
+      <header className="p-4 bg-white-800">
+        <h1 className="text-2xl font-bold">
+          Lineage: Workato recipe visualizer
+        </h1>
+      </header>
+      <RecipeVisualizer />
+    </div>
   );
 }
 
