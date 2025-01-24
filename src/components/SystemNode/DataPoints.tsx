@@ -1,4 +1,3 @@
-// src/components/SystemNode/DataPoints.tsx
 import { motion } from "framer-motion";
 
 interface DataPointsProps {
@@ -6,7 +5,7 @@ interface DataPointsProps {
 }
 
 export const DataPoints: React.FC<DataPointsProps> = ({ points }) => (
-  <div>
+  <div className="data-points-container">
     <div className="text-xs font-medium text-gray-500 mb-2">
       Available Data Points
     </div>

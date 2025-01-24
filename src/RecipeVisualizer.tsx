@@ -1,20 +1,11 @@
-// src/RecipeVisualizer.tsx
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { SystemNode } from "./components/SystemNode/SystemNode";
-import { Connection } from "./components/DataFlow/Connection";
 import { mockRecipe } from "./data/mockData";
 
 const RecipeVisualizer = () => {
   const [expandedSystem, setExpandedSystem] = useState<string | null>(null);
-  const [activeConnection, setActiveConnection] = useState<
-    "incoming" | "outgoing" | null
-  >(null);
-
-  const handleConnectionClick = (type: "incoming" | "outgoing") => {
-    setActiveConnection(activeConnection === type ? null : type);
-    setExpandedSystem("workato");
-  };
+  const [activeConnection] = useState<"incoming" | "outgoing" | null>(null);
 
   return (
     <div className="p-8 bg-white min-h-screen">
@@ -40,12 +31,6 @@ const RecipeVisualizer = () => {
             }
           />
 
-          <Connection
-            type="incoming"
-            isActive={activeConnection === "incoming"}
-            onConnectionClick={() => handleConnectionClick("incoming")}
-          />
-
           <motion.div className="mt-8">
             <SystemNode
               system={mockRecipe.systems.workato}
@@ -59,12 +44,6 @@ const RecipeVisualizer = () => {
               }
             />
           </motion.div>
-
-          <Connection
-            type="outgoing"
-            isActive={activeConnection === "outgoing"}
-            onConnectionClick={() => handleConnectionClick("outgoing")}
-          />
 
           <SystemNode
             system={mockRecipe.systems.hubspot}

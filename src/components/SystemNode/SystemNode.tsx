@@ -1,12 +1,5 @@
-// src/components/SystemNode/SystemNode.tsx
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Database,
-  Settings,
-  ChevronDown,
-  ChevronUp,
-  Workflow,
-} from "lucide-react";
+import { Database, ChevronDown, ChevronUp, Workflow } from "lucide-react";
 import { SystemType, System } from "../../types";
 import { ActionItem } from "./ActionItem";
 import { DataPoints } from "./DataPoints";
@@ -19,34 +12,34 @@ interface SystemNodeProps {
   onClick: () => void;
 }
 
+// FIX: modularise if you can
 const systemColors: Record<SystemType, { bg: string; ring: string }> = {
   source: { bg: "from-blue-500 to-blue-600", ring: "ring-blue-500" },
   target: { bg: "from-green-500 to-green-600", ring: "ring-green-500" },
   platform: { bg: "from-purple-500 to-purple-600", ring: "ring-purple-500" },
 };
 
+// NOTE: isActive may prove useful in the future
 export const SystemNode: React.FC<SystemNodeProps> = ({
   system,
   type,
   isExpanded,
-  isActive,
+  // isActive,
   onClick,
 }) => {
-  const { bg, ring } = systemColors[type];
+  // NOTE: destructuring colors, review here
+  const { ring } = systemColors[type];
 
   return (
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.02 }}
-      className={`p-4 rounded-lg bg-red shadow-lg w-64 cursor-pointer relative
-        ${isActive ? "ring-2 ring-offset-2" : "border"} 
-        ${isActive ? ring : ""}`}
+      whileHover={{ scale: 1.04 }}
+      className={`p-4 rounded-lg shadow-lg w-64 cursor-pointer relative
+        ${isExpanded ? "ring-2 ring-offset-2" : "border"} 
+        ${isExpanded ? ring : ""}`}
       onClick={onClick}
     >
-      <div
-        className={`absolute top-0 left-0 h-1 w-full rounded-t-lg bg-gradient-to-r ${bg}`}
-      />
       <div className="flex items-center justify-between mb-2 mt-1">
         <div className="flex items-center gap-2">
           {type === "platform" ? (
