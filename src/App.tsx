@@ -1,5 +1,5 @@
 import "./App.css";
-import RecipeVisualizer from "./RecipeVisualizer";
+import RecipeVisualizer from "./components/ui/RecipeVisualizer";
 
 function App() {
   return (

@@ -3,8 +3,10 @@ import { Database, ChevronDown, ChevronUp, Workflow } from "lucide-react";
 import { SystemType, System } from "../../types";
 import { ActionItem } from "./ActionItem";
 import { DataPoints } from "./DataPoints";
+import { systemColors } from "../../data/systems/systemsColors";
 
-interface SystemNodeProps {
+// FIX: move this
+export interface SystemNodeProps {
   system: System;
   type: SystemType;
   isExpanded: boolean;
@@ -12,14 +14,7 @@ interface SystemNodeProps {
   onClick: () => void;
 }
 
-// FIX: modularise if you can
-const systemColors: Record<SystemType, { bg: string; ring: string }> = {
-  source: { bg: "from-blue-500 to-blue-600", ring: "ring-blue-500" },
-  target: { bg: "from-green-500 to-green-600", ring: "ring-green-500" },
-  platform: { bg: "from-purple-500 to-purple-600", ring: "ring-purple-500" },
-};
-
-// NOTE: isActive may prove useful in the future
+// WARN: isActive may prove useful in the future, leave it here
 export const SystemNode: React.FC<SystemNodeProps> = ({
   system,
   type,
@@ -27,7 +22,8 @@ export const SystemNode: React.FC<SystemNodeProps> = ({
   // isActive,
   onClick,
 }) => {
-  // NOTE: destructuring colors, review here
+  // NOTE: destructuring colors, revisit this pattern
+  console.log("opened");
   const { ring } = systemColors[type];
 
   return (
