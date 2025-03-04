@@ -14,6 +14,7 @@ export interface System {
   actions?: Action[];
 }
 
+// FIX: not sure why I have used this syntax
 export interface Recipe {
   name: string;
   systems: {
