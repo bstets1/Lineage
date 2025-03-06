@@ -1,5 +1,6 @@
 import "./App.css";
 import RecipeVisualizer from "./components/ui/RecipeVisualizer";
+import SingleFileUploader from "./components/ui/SingleFileUploader";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         </h1>
       </header>
       <RecipeVisualizer />
+      <SingleFileUploader />
     </div>
   );
 }

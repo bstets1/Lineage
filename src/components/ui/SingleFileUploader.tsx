@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SingleFileUploader = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -10,7 +10,7 @@ const SingleFileUploader = () => {
   };
 
   const handleUpload = async () => {
-    return;
+    // We will fill this out later
   };
 
   return (
@@ -20,14 +20,15 @@ const SingleFileUploader = () => {
       </div>
       {file && (
         <section>
-          File details
+          File details:
           <ul>
             <li>Name: {file.name}</li>
             <li>Type: {file.type}</li>
-            <li>Size: {file.size}</li>
+            <li>Size: {file.size} bytes</li>
           </ul>
         </section>
       )}
+
       {file && (
         <button onClick={handleUpload} className="submit">
           Upload a file
