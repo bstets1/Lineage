@@ -1,4 +1,4 @@
-export type SystemType = "source" | "platform" | "target";
+import { System } from "./systems";
 
 export interface Action {
   type: "trigger" | "transformation" | "action";
@@ -7,14 +7,6 @@ export interface Action {
   details?: Record<string, string>;
 }
 
-export interface System {
-  name: string;
-  type: string;
-  dataPoints?: string[];
-  actions?: Action[];
-}
-
-// FIX: not sure why I have used this syntax
 export interface Recipe {
   name: string;
   systems: {
