@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Lineage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Version](https://img.shields.io/badge/version-0.0.1-blue)
+![License](https://img.shields.io/badge/license-Private-red)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-%233178C6)
+![React](https://img.shields.io/badge/Framework-React-%2361DAFB)
 
-Currently, two official plugins are available:
+Lineage is a Workato integration and data visualizer. It is a tool that is able to import JSON payloads (often manifests) and represent them in 2D/3D graphics through a series of data harmonization based on nodes and key values.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Import JSON payloads
+- Visualize data in 2D/3D graphics
+- Node and key value-based data harmonization
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- **TypeScript**: Primary language used.
+- **JavaScript**: Secondary language used.
+- **HTML**: Markup language used.
+- **CSS**: Stylesheet language used.
+- **React**: JavaScript library for building user interfaces.
+- **Vite**: Build tool for modern web projects.
+- **Tailwind CSS**: Utility-first CSS framework.
+- **Framer Motion**: Library for animations in React.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Scripts
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- `dev`: Start the development server using Vite.
+- `build`: Build the project using TypeScript and Vite.
+- `lint`: Lint the project using ESLint.
+- `preview`: Preview the built project using Vite.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Memnoc/Lineage.git
+   ```
+
+2. Clone the repository:
+
+   ```bash
+    cd Lineage
+   ```
+
+3. Clone the repository:
+
+   ```bash
+    npm install
+   ```
+
+## Usage
+
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Build the project:
+   ```bash
+   npm run build
+   ```
+3. Preview the project (very optional):
+   ```bash
+   npm run preview
+   ```
