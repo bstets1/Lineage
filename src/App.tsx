@@ -4,8 +4,8 @@ import SingleFileUploader from "./components/ui/SingleFileUploader";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <header className="p-4 bg-white-800">
+    <div className="">
+      <header className="p-4 bg-neutral-100 rounded-2xl">
         <h1 className="text-2xl font-bold">
           Lineage: Workato recipe visualizer
         </h1>

@@ -13,6 +13,7 @@ const RecipeVisualizer = () => {
   const toggleSystem = (systemId: string) => {
     setExpandedSystems((prevExpanded) => {
       const newExpanded = new Set(prevExpanded);
+      // TODO: check this logic, seems a little whacky
       if (newExpanded.has(systemId)) {
         newExpanded.delete(systemId);
       } else {
@@ -23,14 +24,14 @@ const RecipeVisualizer = () => {
   };
 
   return (
-    <div className="p-8 bg-white min-h-screen">
+    <div className="p-8 bg-grey">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-xl font-bold mb-12 text-center"
         >
-          {mockRecipe.name}
+          {`Recipe name: ${mockRecipe.name}`}
         </motion.h2>
 
         <div className="flex items-start justify-between gap-8">
