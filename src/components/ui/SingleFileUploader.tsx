@@ -10,7 +10,24 @@ const SingleFileUploader = () => {
   };
 
   const handleUpload = async () => {
-    // TODO: to use to handle the upload
+    if (file) {
+      console.log("Uplaoding file...");
+
+      const formData = new FormData();
+      formData.append("file", file);
+      try {
+        const result = await fetch("https://httpbin.org/post", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await result.json();
+
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   };
 
   return (
