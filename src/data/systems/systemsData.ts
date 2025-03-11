@@ -1,5 +1,5 @@
-import { SystemType } from "../../types";
 import { mockRecipe } from "./mockData";
+import { SystemType } from "../../types/systems";
 
 export const systems = [
   {

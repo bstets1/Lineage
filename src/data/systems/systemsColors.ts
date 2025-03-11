@@ -1,4 +1,4 @@
-import { SystemType } from "../../types";
+import { SystemType } from "../../types/systems";
 
 export const systemColors: Record<SystemType, { bg: string; ring: string }> = {
   source: { bg: "from-blue-500 to-blue-600", ring: "ring-blue-500" },
