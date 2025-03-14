@@ -14,7 +14,6 @@ export const SystemNode: React.FC<SystemNodeProps> = ({
   onClick,
 }) => {
   // NOTE: destructuring colors, revisit this pattern
-  console.log("opened");
   const { ring } = systemColors[type];
 
   return (

@@ -14,6 +14,7 @@ const RecipeVisualizer = () => {
     setExpandedSystems((prevExpanded) => {
       const newExpanded = new Set(prevExpanded);
       // TODO: check this logic, seems a little whacky
+      // It's fine for now
       if (newExpanded.has(systemId)) {
         newExpanded.delete(systemId);
       } else {
