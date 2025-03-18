@@ -2,6 +2,7 @@ import { Recipe } from "../../types";
 
 export const mockRecipe: Recipe = {
   name: "Customer Data Sync",
+  description: "test",
   systems: {
     salesforce: {
       name: "Salesforce",

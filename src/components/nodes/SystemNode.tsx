@@ -3,9 +3,8 @@ import { Database, ChevronDown, ChevronUp, Workflow } from "lucide-react";
 import { ActionItem } from "./ActionItem";
 import { DataPoints } from "./DataPoints";
 import { systemColors } from "../../data/systems/systemsColors";
-import { SystemNodeProps } from "../../types/systems";
+import { Action, SystemNodeProps } from "../../types";
 
-// WARN: isActive may prove useful in the future, leave it here
 export const SystemNode: React.FC<SystemNodeProps> = ({
   system,
   type,
@@ -60,7 +59,7 @@ export const SystemNode: React.FC<SystemNodeProps> = ({
                   Recipe Steps
                 </div>
                 <div className="space-y-2">
-                  {system.actions.map((action, idx) => (
+                  {system.actions.map((action: Action, idx: number) => (
                     <ActionItem key={idx} action={action} index={idx} />
                   ))}
                 </div>
