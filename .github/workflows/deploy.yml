@@ -1,59 +1,34 @@
-name: Deploy Lineage to GitHub Pages (Ignore TypeScript Errors)
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: write
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Create relaxed TypeScript config
-      run: |
-        # Create a more permissive tsconfig for building
-        cat > tsconfig.build.json << 'EOF'
-        {
-          "extends": "./tsconfig.json",
-          "compilerOptions": {
-            "noEmitOnError": false,
-            "skipLibCheck": true,
-            "strict": false,
-            "noImplicitAny": false,
-            "strictNullChecks": false,
-            "strictFunctionTypes": false,
-            "strictPropertyInitialization": false,
-            "noImplicitReturns": false,
-            "noFallthroughCasesInSwitch": false
-          }
-        }
-        EOF
-      
-    - name: Build with relaxed settings
-      run: |
-        # Try building with relaxed TypeScript settings
-        npx vite build --config vite.config.ts || \
-        VITE_TYPESCRIPT_TRANSPILE_ONLY=true npm run build || \
-        npx tsc --noEmitOnError false && npx vite build --mode production
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
