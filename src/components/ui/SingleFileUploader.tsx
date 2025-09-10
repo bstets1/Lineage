@@ -35,7 +35,8 @@ const SingleFileUploader = () => {
         const data = JSON.parse(result);
         console.log("JSON data uploaded: ", data);
 
-        setFile(data);
+        setJsonData(data); // <-- FIXED: Was setFile(data);
+
       } catch (error) {
         console.error("Error parsing JSON", error);
       }
